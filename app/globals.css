@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #1f3a4f;
+  --color-accent: #c27c0e;
+  --color-highlight: #1b5e20;
+  --color-section-alt: #f5f7f9;
+  --color-border: #d1d9e0;
+  --color-heading: #1f3a4f;
+  --color-body: #374151;
+  --font-sans: var(--font-inter);
+  --radius-card: 8px;
+  --radius-sm: 4px;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #ffffff;
+  color: #374151;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.prose-content h2 {
+  color: #1f3a4f;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose-content h3 {
+  color: #1f3a4f;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-content p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.prose-content ul,
+.prose-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.prose-content a {
+  color: #c27c0e;
+  text-decoration: underline;
+}
+
+.prose-content a:hover {
+  color: #1f3a4f;
+}
+
+.prose-content {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.prose-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+}
+
+.prose-content table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.prose-content th,
+.prose-content td {
+  border: 1px solid #d1d9e0;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.prose-content th {
+  background: #f5f7f9;
+  color: #1f3a4f;
+  font-weight: 600;
+}
+
+.prose-content tr:nth-child(even) td {
+  background: #fafbfc;
+}
+
+@keyframes cookie-banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cookie-banner-enter {
+  animation: cookie-banner-in 0.35s ease-out forwards;
+}

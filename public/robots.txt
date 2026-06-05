@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /thank-you
+Disallow: /api/
+Disallow: /_next/
+
+Sitemap: https://www.taxexpertwitness.co.uk/sitemap.xml

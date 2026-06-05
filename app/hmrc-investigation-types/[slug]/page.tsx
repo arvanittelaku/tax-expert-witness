@@ -28,9 +28,16 @@ export default async function HmrcInvestigationPage({ params }: Props) {
   if (!investigation) notFound();
 
   const relatedLinks = [
+    { label: "Tax Disputes Explained", href: "/tax-disputes-explained", type: "Pillar Guide" },
+    { label: "HMRC Investigations Hub", href: "/hmrc-investigation-types", type: "Hub" },
     investigation.relatedDispute && { ...investigation.relatedDispute, type: "Related Dispute Type" },
     { ...investigation.relatedService, type: "Related Service" },
-  ].filter(Boolean) as { label: string; href: string; type: string }[];
+  ]
+    .filter(Boolean)
+    .filter(
+      (link, index, arr) =>
+        arr.findIndex((item) => item && link && item.href === link.href) === index
+    ) as { label: string; href: string; type: string }[];
 
   return (
     <>

@@ -17,7 +17,7 @@ const disputeLinks = [
 export default function Footer() {
   return (
     <footer className="bg-primary text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="page-container py-12 md:py-16 pb-[max(3rem,env(safe-area-inset-bottom))]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 min-w-0">
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-white/90 mb-4">Services</h3>

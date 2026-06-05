@@ -165,7 +165,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="min-w-0">
           <label htmlFor="role" className={labelClass}>You are:</label>
-          <select id="role" name="role" className={inputClass}>
+          <select id="role" name="role" className={`${inputClass} max-w-full`}>
             {ROLES.map((r) => (
               <option key={r} value={r}>{r}</option>
             ))}
@@ -239,7 +239,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="min-h-[44px] w-full sm:w-auto rounded-[4px] bg-accent px-8 py-3 text-base font-semibold text-white hover:bg-accent/90 transition-colors disabled:opacity-60"
+        className="min-h-[44px] w-full max-w-full sm:w-auto rounded-[4px] bg-accent px-6 sm:px-8 py-3 text-base font-semibold text-white hover:bg-accent/90 transition-colors disabled:opacity-60"
       >
         {status === "submitting" ? "Submitting…" : "Contact Us"}
       </button>

@@ -22,7 +22,10 @@ export function createMetadata({
     title,
     description,
     metadataBase: new URL(SITE_URL),
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: { "x-default": url },
+    },
     openGraph: {
       title,
       description,

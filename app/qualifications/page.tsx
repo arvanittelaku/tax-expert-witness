@@ -26,7 +26,7 @@ export default function QualificationsPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Qualifications" }]}
       />
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 prose-content max-w-3xl">
+        <div className="page-container prose-content max-w-3xl min-w-0">
           <h2>Core Tax Credentials</h2>
 
           <h3>CTA (Chartered Tax Adviser)</h3>

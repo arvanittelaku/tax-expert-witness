@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavDropdown from "./NavDropdown";
 import {
   serviceNavLinks,
@@ -30,9 +30,18 @@ export default function Header() {
     onClose: () => setOpenDropdown((current) => (current === id ? null : current)),
   });
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [menuOpen]);
+
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 bg-white border-b border-border shadow-sm pt-[env(safe-area-inset-top)]">
+      <div className="page-container">
         <div className="flex h-16 lg:h-[72px] items-center justify-between gap-4">
           <Link
             href="/"
@@ -87,11 +96,13 @@ export default function Header() {
               href="/hmrc-investigation-types"
               links={hmrcInvestigationNavLinks}
               viewAll={{ label: "All Investigation Types", href: "/hmrc-investigation-types" }}
+              align="right"
               {...dropdownProps(DROPDOWN_IDS.hmrc)}
             />
             <NavDropdown
               label="Resources"
               links={resourcesNavLinks}
+              align="right"
               {...dropdownProps(DROPDOWN_IDS.resources)}
             />
           </nav>
@@ -124,10 +135,10 @@ export default function Header() {
 
       {menuOpen && (
         <nav
-          className="xl:hidden border-t border-border bg-white max-h-[calc(100vh-64px)] overflow-y-auto"
+          className="xl:hidden border-t border-border bg-white max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain"
           aria-label="Mobile navigation"
         >
-          <div className="px-4 py-4 space-y-6">
+          <div className="px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))] space-y-6">
             <Link
               href="/"
               className="block min-h-[44px] flex items-center px-2 text-body font-medium hover:text-primary transition-colors"

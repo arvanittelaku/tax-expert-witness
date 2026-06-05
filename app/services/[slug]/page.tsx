@@ -51,15 +51,15 @@ export default async function ServicePage({ params }: Props) {
         ]}
       />
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 min-w-0">
+        <div className="page-container">
           <div className="max-w-3xl">
             {service.paragraphs.map((p, i) => (
               <p key={i} className="text-body leading-relaxed mb-4">{p}</p>
             ))}
           </div>
 
-          <div className="mt-10 overflow-x-auto -mx-2 px-2 sm:mx-0 sm:px-0">
-            <table className="w-full min-w-[480px] text-sm border-collapse rounded-[8px] overflow-hidden border border-border">
+          <div className="mt-10 table-scroll rounded-[8px] border border-border">
+            <table className="w-full min-w-[32rem] text-sm border-collapse overflow-hidden">
               <thead>
                 <tr className="bg-section-alt">
                   <th className="border border-border px-4 py-3 text-left text-heading font-semibold">Aspect</th>

@@ -32,6 +32,28 @@ export function breadcrumbSchema(
   };
 }
 
+export type DefinedTerm = {
+  id: string;
+  name: string;
+  description: string;
+};
+
+export function definedTermSetSchema(terms: DefinedTerm[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    name: "Tax Expert Witness Glossary",
+    url: `${SITE_URL}/glossary`,
+    inLanguage: "en-GB",
+    hasDefinedTerm: terms.map((term) => ({
+      "@type": "DefinedTerm",
+      "@id": `${SITE_URL}/glossary#${term.id}`,
+      name: term.name,
+      description: term.description,
+    })),
+  };
+}
+
 export function articleSchema({
   title,
   description,
@@ -51,6 +73,7 @@ export function articleSchema({
     headline: title,
     description,
     url: `${SITE_URL}${path}`,
+    inLanguage: "en-GB",
     datePublished,
     dateModified,
     author: {

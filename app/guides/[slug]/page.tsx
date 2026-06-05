@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import PageHero from "@/components/PageHero";
 import CTASection from "@/components/CTASection";
+import HubRelatedLinks from "@/components/HubRelatedLinks";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { guides, getGuide } from "@/lib/data/guides";
@@ -53,10 +54,19 @@ export default async function GuidePage({ params }: Props) {
         ]}
       />
       <section className="py-12 md:py-16">
-        <div
-          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 prose-content max-w-3xl"
-          dangerouslySetInnerHTML={{ __html: guide.content }}
-        />
+        <div className="page-container min-w-0">
+          <div
+            className="prose-content max-w-3xl"
+            dangerouslySetInnerHTML={{ __html: guide.content }}
+          />
+          <HubRelatedLinks
+            links={[
+              { label: "Tax Disputes Explained (master pillar)", href: "/tax-disputes-explained" },
+              { label: "All solicitor guides", href: "/guides" },
+              { label: "How to instruct a tax expert witness", href: "/how-to-instruct" },
+            ]}
+          />
+        </div>
       </section>
       <CTASection />
     </>

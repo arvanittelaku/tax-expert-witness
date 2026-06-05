@@ -12,16 +12,18 @@ This document is the single source of truth for keyword strategy, content cluste
 
 | Asset | File | Status |
 |-------|------|--------|
-| Metadata helper | `lib/metadata.ts` | Ready — `createMetadata()` with canonical, OG `en_GB`, robots |
-| JSON-LD schemas | `lib/schema.ts` | Ready — FAQ, breadcrumb, article, homepage, services |
+| Metadata helper | `lib/metadata.ts` | Live — `createMetadata()` with canonical, `x-default` hreflang, OG `en_GB`, robots |
+| JSON-LD schemas | `lib/schema.ts` | Live — FAQ, breadcrumb, article, homepage, services, `DefinedTermSet` |
 | Site constants | `lib/site.ts` | `SITE_URL`, LinkedIn URL defined |
 | Apex → www redirect | `middleware.ts` | 301 to `www.taxexpertwitness.co.uk` |
-| Content data (slugs + meta) | `lib/data/tax-dispute-types.ts`, `lib/data/tribunals-courts.ts`, `lib/data/services.ts` | 10 dispute types, 4 tribunals, 8 services — **no page routes yet** |
-| Root layout | `app/layout.tsx` | Still create-next-app defaults: `lang="en"`, no hreflang |
-| Sitemap / robots | — | Missing |
-| Content pages | `app/**/page.tsx` | Only placeholder homepage (`app/page.tsx`) |
+| Content data + routes | `lib/data/*`, `app/**/page.tsx` | 10 dispute types, 4 tribunals, 5 HMRC types, 6 guides, 8 services — all routed |
+| Root layout | `app/layout.tsx` | `lang="en-GB"`, site metadata, verification meta from env |
+| Sitemap / robots | `scripts/generate-seo.ts` → `public/sitemap.xml`, `public/robots.txt` | 48 URLs; `npm run seo:verify` in build |
+| GEO citation tables | Pillar/hub pages | FTT jurisdiction, appeal structure, HMRC types, COP8 vs COP9, TP methods, expert vs forensic |
+| Glossary | `/glossary` | 35 terms, stable anchor IDs (`#ftt`, `#mtic`, `#cop9`, etc.), `DefinedTermSet` schema |
+| Removed routes | `/fees`, `/faq`, `/experts` | Intentionally removed; keywords redirected to `/how-to-instruct`, `/qualifications`, `/contact` |
 
-All hub URLs in `components/Header.tsx` and `components/Footer.tsx` are planned links. Content data files define canonical slugs and per-page meta titles/descriptions ready for `generateMetadata()`.
+Service deep links use `/services/[slug]` (not `#fragment` anchors). Run `npm run seo:generate` before deploy to refresh sitemap.
 
 ---
 
@@ -38,7 +40,7 @@ High-intent searches from solicitors and litigators instructing expert witnesses
 | tax expert witness UK | `/` |
 | tax expert witness .co.uk | `/` |
 | tax expert witness | `/` |
-| HMRC tax expert witness UK | `/services#hmrc-methodology-challenge` |
+| HMRC tax expert witness UK | `/services/hmrc-methodology-challenge` |
 | FTT tax expert witness UK | `/tribunals-courts/first-tier-tribunal-tax` |
 | tax tribunal expert witness UK | `/tribunals-courts` |
 | VAT expert witness UK | `/tax-dispute-types/vat-mtic-fraud-disputes` |
@@ -59,7 +61,7 @@ Research-phase queries from solicitors building case strategy.
 | transfer pricing arm's length expert | `/tax-dispute-types/transfer-pricing-disputes` |
 | COP8 vs COP9 HMRC investigation | `/hmrc-investigation-types` |
 | IHT BPR dispute expert witness UK | `/tax-dispute-types/iht-business-property-relief` |
-| tax expert witness fees UK | `/fees` |
+| tax expert witness fees UK | `/how-to-instruct` |
 | when to instruct tax expert FTT | `/how-to-instruct` |
 | difference tax expert forensic accountant UK | `/what-is-a-tax-expert-witness` |
 
@@ -155,7 +157,7 @@ flowchart TB
 | `/guides/ftt-procedure-expert-evidence` | Planned | |
 | `/tax-disputes-explained` (FTT section) | Planned | Pillar page — FTT jurisdiction table |
 | `/glossary#ftt` | Planned | |
-| `/faq` (FTT Q&As) | Planned | |
+| `/qualifications` (FTT / CPR Part 35) | Live | |
 
 **Tier keywords:** FTT tax expert witness UK, tax tribunal expert witness UK, FTT expert evidence procedure UK, when to instruct tax expert FTT
 
@@ -168,7 +170,7 @@ flowchart TB
 | `/tax-dispute-types/hmrc-business-records-reconstruction` | Data ready | `lib/data/tax-dispute-types.ts` |
 | `/hmrc-investigation-types/code-of-practice-8-cop8` | Referenced | Linked from dispute type |
 | `/what-is-a-tax-expert-witness` (methodology section) | Planned | |
-| `/services#hmrc-methodology-challenge` | Data ready | `lib/data/services.ts` |
+| `/services/hmrc-methodology-challenge` | Live | `app/services/[slug]/page.tsx` |
 | `/glossary#mark-up-analysis` | Planned | |
 
 **Tier keywords:** HMRC tax expert witness UK, how to challenge HMRC methodology, HMRC business reconstruction challenge expert
@@ -181,7 +183,7 @@ flowchart TB
 |----------------|--------|-------|
 | `/guides/vat-mtic-knowledge-test` | Planned | Unique technical asset |
 | `/hmrc-investigation-types/mtic-vat-fraud-investigation` | Referenced | |
-| `/services#vat-dispute-evidence` | Data ready | |
+| `/services/vat-dispute-evidence` | Live | |
 | `/glossary#mtic` | Planned | |
 | `/glossary#mobilx-v-hmrc` | Planned | |
 
@@ -195,7 +197,7 @@ flowchart TB
 |----------------|--------|-------|
 | `/guides/transfer-pricing-expert-guide` | Planned | |
 | `/hmrc-investigation-types/transfer-pricing-enquiry` | Referenced | |
-| `/services#transfer-pricing-evidence` | Data ready | |
+| `/services/transfer-pricing-evidence` | Live | |
 | `/glossary#transfer-pricing` | Planned | |
 | `/glossary#oecd-beps` | Planned | |
 
@@ -209,7 +211,7 @@ flowchart TB
 |----------------|--------|-------|
 | `/hmrc-investigation-types/code-of-practice-8-cop8` | Referenced | |
 | `/hmrc-investigation-types/code-of-practice-9-cop9` | Referenced | |
-| `/services#cop8-cop9-support` | Data ready | |
+| `/services/cop8-cop9-support` | Live | |
 | `/glossary#cop8` | Planned | |
 | `/glossary#cop9` | Planned | |
 
@@ -222,7 +224,7 @@ flowchart TB
 | Supporting page | Status | Notes |
 |----------------|--------|-------|
 | `/guides/tax-professional-negligence` | Planned | |
-| `/services#tax-professional-negligence` | Data ready | |
+| `/services/tax-professional-negligence` | Live | |
 | `/glossary#pcrt` | Planned | |
 
 **Tier keywords:** tax professional negligence expert witness UK
@@ -234,7 +236,7 @@ flowchart TB
 | Supporting page | Status | Notes |
 |----------------|--------|-------|
 | `/tax-dispute-types/cgt-share-disposal-valuation` | Data ready | |
-| `/services#iht-cgt-valuation` | Data ready | |
+| `/services/iht-cgt-valuation` | Live | |
 | `/glossary#bpr` | Planned | |
 | `/glossary#badr` | Planned | |
 
@@ -464,7 +466,7 @@ Pre-launch and post-launch SEO tasks cross-referenced to repo files.
 4. `/hmrc-investigation-types` + 5 child slugs
 5. `/tax-dispute-types` + 10 child slugs
 6. `/services`, `/what-is-a-tax-expert-witness`, `/guides` + 6 guide slugs
-7. `/glossary`, `/faq`, `/fees`, `/how-to-instruct`, `/contact`, `/experts`
+7. `/glossary`, `/how-to-instruct`, `/contact`, `/qualifications`
 8. `/privacy`, `/terms`, `app/not-found.tsx`
 
 ### Off-page
@@ -493,15 +495,15 @@ Conventions for page builds to maximise cluster authority and crawl efficiency.
 
 - FTT cluster links to relevant dispute types (e.g. MTIC → FTT page).
 - COP8/COP9 cluster links to methodology challenge guide and business records reconstruction dispute.
-- Services page fragment anchors link to relevant dispute and investigation pages:
-  - `/services#technical-tax-opinion`
-  - `/services#hmrc-methodology-challenge`
-  - `/services#vat-dispute-evidence`
-  - `/services#transfer-pricing-evidence`
-  - `/services#iht-cgt-valuation`
-  - `/services#employment-related-securities`
-  - `/services#tax-professional-negligence`
-  - `/services#cop8-cop9-support`
+- Service pages link to relevant dispute and investigation pages via `/services/[slug]`:
+  - `/services/technical-tax-opinion`
+  - `/services/hmrc-methodology-challenge`
+  - `/services/vat-dispute-evidence`
+  - `/services/transfer-pricing-evidence`
+  - `/services/iht-cgt-valuation`
+  - `/services/employment-related-securities`
+  - `/services/tax-professional-negligence`
+  - `/services/cop8-cop9-support`
 
 ### Glossary
 
@@ -534,8 +536,8 @@ Render via `components/JsonLd.tsx`.
 | `/tax-disputes-explained` | 0.9 | monthly |
 | Hub pages (`/tribunals-courts`, `/hmrc-investigation-types`, `/tax-dispute-types`, `/guides`, `/services`) | 0.9 | monthly |
 | Child slugs (dispute, tribunal, investigation, guide) | 0.7 | monthly |
-| `/glossary`, `/faq`, `/fees`, `/how-to-instruct` | 0.6 | monthly |
-| `/contact`, `/experts`, `/what-is-a-tax-expert-witness` | 0.5 | monthly |
+| `/glossary`, `/how-to-instruct` | 0.6 | monthly |
+| `/contact`, `/what-is-a-tax-expert-witness`, `/qualifications` | 0.5 | monthly |
 | `/privacy`, `/terms`, `/thank-you` | 0.3 | yearly |
 
 ---

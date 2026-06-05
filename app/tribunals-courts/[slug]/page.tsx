@@ -28,9 +28,20 @@ export default async function TribunalCourtPage({ params }: Props) {
   if (!tribunal) notFound();
 
   const relatedLinks = [
-    tribunal.relatedDispute && { ...tribunal.relatedDispute, type: "Related Guide" },
+    { label: "Tax Disputes Explained", href: "/tax-disputes-explained", type: "Pillar Guide" },
+    { label: "Tribunals Hub", href: "/tribunals-courts", type: "Hub" },
+    tribunal.relatedDispute &&
+      tribunal.relatedDispute.href !== "/tax-disputes-explained" && {
+        ...tribunal.relatedDispute,
+        type: "Related Guide",
+      },
     { ...tribunal.relatedService, type: "Related Service" },
-  ].filter(Boolean) as { label: string; href: string; type: string }[];
+  ]
+    .filter(Boolean)
+    .filter(
+      (link, index, arr) =>
+        arr.findIndex((item) => item && link && item.href === link.href) === index
+    ) as { label: string; href: string; type: string }[];
 
   return (
     <>

@@ -11,14 +11,16 @@ export default function CTASection({
 }) {
   return (
     <section className="bg-accent py-14 md:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-white">{title}</h2>
-        <p className="mt-4 mx-auto max-w-2xl text-white/90 text-lg leading-relaxed">
+      <div className="page-container text-center">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white break-words px-2 sm:px-0">
+          {title}
+        </h2>
+        <p className="mt-4 mx-auto max-w-2xl text-white/90 text-base sm:text-lg leading-relaxed break-words px-2 sm:px-0">
           {description}
         </p>
         <Link
           href="/contact"
-          className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-[4px] bg-primary px-8 py-3 text-base font-semibold text-white shadow-md hover:bg-primary/90 transition-colors"
+          className="mt-8 inline-flex min-h-[44px] w-full max-w-xs sm:w-auto sm:max-w-none items-center justify-center rounded-[4px] bg-primary px-8 py-3 text-base font-semibold text-white shadow-md hover:bg-primary/90 transition-colors"
         >
           {buttonText}
         </Link>

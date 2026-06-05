@@ -13,7 +13,7 @@ export default function PageHero({
 }) {
   return (
     <section className="bg-primary py-10 sm:py-14 md:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 min-w-0">
+      <div className="page-container">
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav aria-label="Breadcrumb" className="mb-4">
             <ol className="flex flex-wrap items-center gap-1 text-xs sm:text-sm text-white/60">
@@ -39,7 +39,7 @@ export default function PageHero({
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-4 max-w-3xl text-base sm:text-lg text-white/80 leading-relaxed">
+          <p className="mt-4 max-w-3xl text-sm sm:text-base md:text-lg text-white/80 leading-relaxed break-words">
             {subtitle}
           </p>
         )}

@@ -40,7 +40,7 @@ export default function ThankYouPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Thank You" }]}
       />
       <section className="py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="page-container min-w-0">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-highlight/10 text-highlight text-3xl font-bold mb-6">
               ✓

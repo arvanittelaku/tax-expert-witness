@@ -11,6 +11,7 @@ type Props = {
   viewAll?: NavLink;
   onNavigate?: () => void;
   mobile?: boolean;
+  align?: "left" | "right";
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
@@ -23,6 +24,7 @@ export default function NavDropdown({
   viewAll,
   onNavigate,
   mobile = false,
+  align = "left",
   isOpen,
   onOpen,
   onClose,
@@ -107,9 +109,11 @@ export default function NavDropdown({
         <div
           id={panelId}
           role="menu"
-          className="absolute left-0 top-full z-50 pt-1"
+          className={`absolute top-full z-50 pt-1 ${
+            align === "right" ? "right-0 left-auto" : "left-0"
+          }`}
         >
-          <div className="min-w-[240px] max-w-[320px] rounded-[8px] border border-border bg-white py-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
+          <div className="min-w-[12rem] max-w-[min(20rem,calc(100vw-2rem))] rounded-[8px] border border-border bg-white py-2 shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
             {viewAll && (
               <Link
                 href={viewAll.href}

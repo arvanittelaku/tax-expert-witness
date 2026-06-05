@@ -1,5 +1,11 @@
 import type { FAQ } from "@/lib/schema";
 
+export type ContentTable = {
+  title: string;
+  headers: string[];
+  rows: string[][];
+};
+
 export type TaxDisputeType = {
   slug: string;
   title: string;
@@ -8,6 +14,7 @@ export type TaxDisputeType = {
   metaDescription: string;
   paragraphs: string[];
   faqs: FAQ[];
+  tables?: ContentTable[];
   relatedTribunal?: { label: string; href: string };
   relatedInvestigation?: { label: string; href: string };
   relatedService: { label: string; href: string };
@@ -68,6 +75,18 @@ export const taxDisputeTypes: TaxDisputeType[] = [
     ],
     relatedInvestigation: { label: "Transfer Pricing Enquiry", href: "/hmrc-investigation-types/transfer-pricing-enquiry" },
     relatedService: { label: "Transfer Pricing Expert Evidence", href: "/services/transfer-pricing-evidence" },
+    tables: [
+      {
+        title: "OECD Transfer Pricing Methods",
+        headers: ["Method", "Best For", "Expert Focus"],
+        rows: [
+          ["Comparable Uncontrolled Price (CUP)", "Commodity and standardised transactions", "Direct price comparables"],
+          ["Resale Price Method", "Distribution and resale activities", "Gross margin benchmarks"],
+          ["Cost Plus Method", "Manufacturing and contract services", "Markup on costs"],
+          ["Transactional Net Margin Method (TNMM)", "Complex arrangements without close comparables", "Net profit indicators"],
+        ],
+      },
+    ],
   },
   {
     slug: "employment-related-securities",

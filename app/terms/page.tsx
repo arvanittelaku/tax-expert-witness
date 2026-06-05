@@ -17,7 +17,7 @@ export default function TermsPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Terms of Use" }]}
       />
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 prose-content max-w-3xl">
+        <div className="page-container prose-content max-w-3xl min-w-0">
           <p><strong>Last updated:</strong> June 2025</p>
 
           <h2>About This Service</h2>

@@ -34,7 +34,7 @@ export default function NotFound() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "404" }]}
       />
       <section className="py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="page-container min-w-0">
           <div className="text-center mb-12">
             <p className="text-7xl md:text-8xl font-bold text-accent leading-none">404</p>
             <p className="mt-4 text-body text-lg max-w-xl mx-auto leading-relaxed">

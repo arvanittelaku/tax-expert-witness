@@ -28,10 +28,16 @@ export default async function TaxDisputeTypePage({ params }: Props) {
   if (!dispute) notFound();
 
   const relatedLinks = [
+    { label: "Tax Disputes Explained", href: "/tax-disputes-explained", type: "Pillar Guide" },
     dispute.relatedTribunal && { ...dispute.relatedTribunal, type: "Related Tribunal" },
     dispute.relatedInvestigation && { ...dispute.relatedInvestigation, type: "Related Investigation" },
     { ...dispute.relatedService, type: "Related Service" },
-  ].filter(Boolean) as { label: string; href: string; type: string }[];
+  ]
+    .filter(Boolean)
+    .filter(
+      (link, index, arr) =>
+        arr.findIndex((item) => item && link && item.href === link.href) === index
+    ) as { label: string; href: string; type: string }[];
 
   return (
     <>
@@ -54,6 +60,7 @@ export default async function TaxDisputeTypePage({ params }: Props) {
         ]}
         paragraphs={dispute.paragraphs}
         faqs={dispute.faqs}
+        tables={dispute.tables}
         relatedLinks={relatedLinks}
       />
     </>

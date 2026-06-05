@@ -2,8 +2,27 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
-import { articleSchema, breadcrumbSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
+import type { FAQ } from "@/lib/schema";
 import { createMetadata } from "@/lib/metadata";
+
+const pillarFaqs: FAQ[] = [
+  {
+    question: "What taxes does the First-tier Tribunal (Tax Chamber) hear?",
+    answer:
+      "The FTT Tax Chamber hears appeals against HMRC decisions on income tax, PAYE, corporation tax, CGT, NIC, IHT, VAT, SDLT, excise duty, and customs duty. Expert evidence is most common where technical tax analysis, valuation, or HMRC methodology is disputed.",
+  },
+  {
+    question: "What is the four-level UK tax appeal structure?",
+    answer:
+      "UK tax disputes typically progress through HMRC internal review, First-tier Tribunal, Upper Tribunal (on points of law), and Court of Appeal or Supreme Court. Formal expert evidence is most significant at FTT and Upper Tribunal stages.",
+  },
+  {
+    question: "Which HMRC investigation types most often need tax expert witnesses?",
+    answer:
+      "COP8 civil fraud investigations, COP9 Contractual Disclosure Facility cases, MTIC VAT fraud investigations, transfer pricing enquiries, and discovery assessment challenges frequently require independent tax or forensic expert evidence.",
+  },
+];
 
 const PAGE_DESCRIPTION =
   "The complete guide to tax disputes in the UK, FTT and Upper Tribunal procedure, HMRC investigation types, when expert evidence is needed, and how tax expert witnesses help.";
@@ -19,6 +38,7 @@ export default function TaxDisputesExplainedPage() {
     <>
       <JsonLd
         data={[
+          faqSchema(pillarFaqs),
           articleSchema({
             title: "Tax Disputes in the UK: The Complete Guide for Solicitors",
             description: PAGE_DESCRIPTION,
@@ -35,13 +55,56 @@ export default function TaxDisputesExplainedPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tax Disputes Explained" }]}
       />
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 prose-content max-w-3xl">
+        <div className="page-container prose-content max-w-3xl min-w-0">
           <h2>The UK Tax Dispute Landscape</h2>
           <p>
             The First-tier Tribunal (Tax Chamber) handles appeals against HMRC decisions on income tax, PAYE, corporation tax, CGT, NIC, IHT, VAT, excise duty, and customs duty. Tax disputes range from straightforward assessment challenges to complex multi-million pound transfer pricing and MTIC fraud proceedings. At every level, the question of whether independent expert evidence is required, and what type of expert, is a critical strategic decision for instructing solicitors.
           </p>
           <p>
             A tax expert witness is distinct from a forensic accountant. Where the dispute turns on whether the correct tax analysis was applied, whether HMRC&apos;s methodology is sound, or what the correct tax position should be, a tax technical expert is required. Where the dispute turns on financial reconstruction, business valuation, or quantification of undeclared income, a forensic accountant may be needed, and in many complex HMRC investigations, both disciplines work together.
+          </p>
+
+          <h2>FTT Tax Chamber Jurisdiction</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Tax / Duty</th>
+                <th>FTT Jurisdiction</th>
+                <th>Common Expert Evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Income tax &amp; PAYE</td>
+                <td>Yes</td>
+                <td>Technical tax opinions, reconstruction methodology</td>
+              </tr>
+              <tr>
+                <td>Corporation tax &amp; CGT</td>
+                <td>Yes</td>
+                <td>Scheme analysis, valuation, GAAR challenges</td>
+              </tr>
+              <tr>
+                <td>NIC &amp; IHT</td>
+                <td>Yes</td>
+                <td>BPR analysis, share and business valuations</td>
+              </tr>
+              <tr>
+                <td>VAT &amp; SDLT</td>
+                <td>Yes</td>
+                <td>MTIC knowledge test, classification, planning disputes</td>
+              </tr>
+              <tr>
+                <td>Excise &amp; customs</td>
+                <td>Yes</td>
+                <td>Technical classification and duty analysis</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            See also:{" "}
+            <Link href="/glossary#ftt">FTT glossary definition</Link> |{" "}
+            <Link href="/tribunals-courts/first-tier-tribunal-tax">First-tier Tribunal guide</Link>
           </p>
 
           <h2>The Four-Level Appeal Structure</h2>

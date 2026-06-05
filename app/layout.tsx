@@ -17,10 +17,15 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: SITE_URL,
+    languages: { "x-default": SITE_URL },
+  },
   title: {
     default: "Tax Expert Witness UK | HMRC Disputes, Tribunals & Tax Litigation",
     template: "%s | TaxExpertWitness.co.uk",
@@ -46,7 +51,7 @@ export default function RootLayout({
         <ConsentModeInit />
         <CookieConsentProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 min-w-0 w-full">{children}</main>
           <Footer />
         </CookieConsentProvider>
       </body>

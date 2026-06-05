@@ -19,7 +19,7 @@ export default function CookieBanner({
       aria-labelledby="cookie-banner-title"
       aria-describedby="cookie-banner-desc"
       aria-modal="false"
-      className="fixed inset-x-0 bottom-0 z-[100] p-4 sm:p-6 cookie-banner-enter"
+      className="fixed inset-x-0 bottom-0 z-[100] p-4 sm:p-6 pb-[max(1rem,env(safe-area-inset-bottom))] cookie-banner-enter"
     >
       <div className="mx-auto max-w-4xl rounded-[8px] border border-border bg-white shadow-[0_8px_32px_rgba(0,0,0,0.12)] overflow-hidden">
         <div className="bg-primary px-5 py-3 sm:px-6">

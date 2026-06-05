@@ -56,7 +56,7 @@ export default function HomePage() {
         subtitle="When a tax dispute reaches the First-tier Tribunal, Upper Tribunal, or Crown Court, the technical tax analysis must be independently verified by a qualified expert. TaxExpertWitness.co.uk connects UK solicitors and tax litigation counsel with qualified tax expert witnesses, specialists in HMRC investigation methodology, tribunal procedure, and independent tax technical opinion."
       />
       <section className="py-8 bg-section-alt border-b border-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="page-container text-center">
           <Link
             href="/contact"
             className="inline-flex min-h-[44px] items-center justify-center rounded-[4px] bg-accent px-8 py-3 text-base font-semibold text-white hover:bg-accent/90 transition-colors"
@@ -67,8 +67,8 @@ export default function HomePage() {
       </section>
 
       <section className="py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-heading mb-8">
+        <div className="page-container min-w-0">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading mb-8 break-words">
             What Our Tax Expert Witnesses Cover
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -85,12 +85,12 @@ export default function HomePage() {
       </section>
 
       <section className="py-14 md:py-20 bg-section-alt">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-heading mb-8">
+        <div className="page-container min-w-0">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading mb-8 break-words">
             UK Tax Disputes: Key 2025–2026 Facts
           </h2>
-          <div className="overflow-x-auto rounded-[8px] border border-border bg-white shadow-[var(--shadow-card)]">
-            <table className="w-full text-sm min-w-[600px]">
+          <div className="table-scroll rounded-[8px] border border-border bg-white shadow-[var(--shadow-card)]">
+            <table className="w-full text-sm min-w-[36rem]">
               <thead>
                 <tr className="bg-primary text-white">
                   <th className="px-4 py-3 text-left font-semibold">Fact</th>
@@ -116,8 +116,8 @@ export default function HomePage() {
       </section>
 
       <section className="py-14 md:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-heading mb-8">
+        <div className="page-container min-w-0">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading mb-8 break-words">
             Who Needs a Tax Expert Witness?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

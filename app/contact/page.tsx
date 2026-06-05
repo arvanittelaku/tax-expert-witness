@@ -33,13 +33,13 @@ export default function ContactPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       />
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div className="page-container">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
             <div className="lg:col-span-2 min-w-0">
               <ContactForm />
             </div>
             <aside className="lg:col-span-1 min-w-0">
-              <div className="rounded-[8px] border border-border bg-section-alt p-6 lg:sticky lg:top-24">
+              <div className="rounded-[8px] border border-border bg-section-alt p-5 sm:p-6 lg:sticky lg:top-24">
                 <h2 className="text-lg font-bold text-heading mb-4">Why Instruct Through Us</h2>
                 <ul className="space-y-3">
                   {trustPoints.map((point) => (

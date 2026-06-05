@@ -21,7 +21,7 @@ export default function FAQAccordion({ faqs }: { faqs: FAQ[] }) {
               onClick={() => setOpenIndex(isOpen ? null : index)}
               aria-expanded={isOpen}
             >
-              <span className="font-semibold text-heading text-base">
+              <span className="font-semibold text-heading text-sm sm:text-base break-words text-left">
                 {faq.question}
               </span>
               <span

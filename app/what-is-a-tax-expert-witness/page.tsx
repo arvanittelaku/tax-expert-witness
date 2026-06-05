@@ -2,8 +2,22 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
+import type { FAQ } from "@/lib/schema";
 import { createMetadata } from "@/lib/metadata";
+
+const comparisonFaqs: FAQ[] = [
+  {
+    question: "What is the difference between a tax expert witness and a forensic accountant?",
+    answer:
+      "A forensic accountant focuses on financial numbers, reconstruction, and quantification. A tax expert witness focuses on whether the correct tax analysis was applied, whether HMRC methodology is sound, and what the correct tax treatment should be. Complex HMRC investigations often require both.",
+  },
+  {
+    question: "When should a solicitor instruct a tax expert witness rather than a forensic accountant?",
+    answer:
+      "Instruct a tax expert witness where the dispute turns on technical tax law, HMRC methodology, tribunal tax analysis, COP8/COP9 technical issues, MTIC knowledge, transfer pricing, or professional negligence standard of care. Instruct a forensic accountant where loss quantification, business valuation, or financial reconstruction is the primary question.",
+  },
+];
 
 export const metadata = createMetadata({
   title: "What Is a Tax Expert Witness? | UK Role & Tax Tribunal Standards",
@@ -16,10 +30,13 @@ export default function WhatIsPage() {
   return (
     <>
       <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "What Is a Tax Expert Witness?", path: "/what-is-a-tax-expert-witness" },
-        ])}
+        data={[
+          faqSchema(comparisonFaqs),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "What Is a Tax Expert Witness?", path: "/what-is-a-tax-expert-witness" },
+          ]),
+        ]}
       />
       <PageHero
         title="What Is a Tax Expert Witness?"
@@ -29,7 +46,7 @@ export default function WhatIsPage() {
         ]}
       />
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 prose-content max-w-3xl">
+        <div className="page-container prose-content max-w-3xl min-w-0">
           <h2>Definition</h2>
           <p>
             A tax expert witness is a qualified tax specialist, typically a Chartered Tax Adviser (CTA) or senior tax practitioner, retained to provide an independent expert opinion on technical tax questions in legal proceedings. Unlike a forensic accountant who focuses on financial numbers, a tax expert witness focuses on the correct application of tax law and HMRC practice to the facts of the case.

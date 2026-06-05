@@ -26,7 +26,7 @@ export default function HowToInstructPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "How to Instruct" }]}
       />
       <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 prose-content max-w-3xl">
+        <div className="page-container prose-content max-w-3xl min-w-0">
           <h2>For Tax Litigation Counsel</h2>
           <ol>
             <li><strong>Identify the technical tax issue</strong>, VAT, transfer pricing, IHT, CGT, ERS, SDLT, corporate avoidance, or professional negligence</li>

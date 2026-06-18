@@ -27,6 +27,11 @@ export default function HowToInstructPage() {
       />
       <section className="py-12 md:py-16">
         <div className="page-container prose-content max-w-3xl min-w-0">
+          <h2>United Kingdom Matters Only</h2>
+          <p>
+            This guide applies to instructing tax expert witnesses in UK tax disputes only: HMRC assessments and investigations, First-tier Tribunal and Upper Tribunal appeals, and civil proceedings where English, Welsh, Scottish, or Northern Irish tax law and tribunal rules govern expert evidence. We do not cover non-UK tax jurisdictions.
+          </p>
+
           <h2>For Tax Litigation Counsel</h2>
           <ol>
             <li><strong>Identify the technical tax issue</strong>, VAT, transfer pricing, IHT, CGT, ERS, SDLT, corporate avoidance, or professional negligence</li>

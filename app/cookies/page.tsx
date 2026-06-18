@@ -2,6 +2,7 @@ import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import CookieSettingsLink from "@/components/cookies/CookieSettingsLink";
 import { createMetadata } from "@/lib/metadata";
+import { SITE_EMAIL } from "@/lib/site";
 
 export const metadata = createMetadata({
   title: "Cookie Policy | TaxExpertWitness.co.uk",
@@ -101,13 +102,13 @@ export default function CookiesPage() {
           <p>
             We do not sell personal information. California residents may request information about
             data collection practices by contacting{" "}
-            <a href="mailto:info@taxexpertwitness.co.uk">info@taxexpertwitness.co.uk</a>.
+            <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>.
           </p>
 
           <h2>Contact</h2>
           <p>
             Cookie enquiries:{" "}
-            <a href="mailto:info@taxexpertwitness.co.uk">info@taxexpertwitness.co.uk</a>
+            <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
           </p>
         </div>
       </section>

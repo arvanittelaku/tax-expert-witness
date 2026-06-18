@@ -1,5 +1,6 @@
 import PageHero from "@/components/PageHero";
 import { createMetadata } from "@/lib/metadata";
+import { SITE_EMAIL, UK_SERVICE_SCOPE } from "@/lib/site";
 
 export const metadata = createMetadata({
   title: "Terms of Use | TaxExpertWitness.co.uk",
@@ -24,6 +25,9 @@ export default function TermsPage() {
           <p>
             TaxExpertWitness.co.uk is a referral service that connects UK solicitors, barristers, forensic accountants, and taxpayers&apos; advisers with qualified tax expert witnesses. We are not a law firm and do not provide legal or tax advice.
           </p>
+
+          <h2>Geographic Scope</h2>
+          <p>{UK_SERVICE_SCOPE}</p>
 
           <h2>Nature of the Service</h2>
           <p>
@@ -58,7 +62,7 @@ export default function TermsPage() {
           <h2>Contact</h2>
           <p>
             Enquiries about these terms:{" "}
-            <a href="mailto:info@taxexpertwitness.co.uk">info@taxexpertwitness.co.uk</a>
+            <a href={`mailto:${SITE_EMAIL}`}>{SITE_EMAIL}</a>
           </p>
         </div>
       </section>

@@ -142,6 +142,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-14 md:py-20 bg-section-alt">
+        <div className="page-container min-w-0 max-w-3xl">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-heading mb-4 break-words">
+            United Kingdom Service Scope
+          </h2>
+          <p className="text-body leading-relaxed mb-4">
+            This website covers tax expert witness instruction for disputes within the United Kingdom only. Our content, guides, and expert referral service address HMRC assessments and enquiries, the First-tier Tribunal (Tax Chamber), Upper Tribunal, Court of Appeal, and civil court proceedings where UK tax law applies across England, Wales, Scotland, and Northern Ireland.
+          </p>
+          <p className="text-body leading-relaxed mb-4">
+            Expert witnesses introduced through this service are qualified in UK tax practice, familiar with HMRC manuals and published guidance, and experienced in giving evidence under CPR Part 35 and FTT Rules. We do not cover US Internal Revenue Service disputes, EU member state tax proceedings outside the UK, or other non-UK jurisdictions.
+          </p>
+          <p className="text-body leading-relaxed">
+            The <code className="text-sm">.co.uk</code> domain reflects this focus: all dispute types, tribunal guides, and investigation procedures described here assume a UK tax context. For an overview of the UK tax dispute landscape, see{" "}
+            <Link href="/tax-disputes-explained" className="text-accent font-semibold underline hover:text-primary">
+              Tax Disputes Explained
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
       <CTASection />
     </>
   );

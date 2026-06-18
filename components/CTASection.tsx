@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CTASection({
   title = "Instruct a Tax Expert Witness Today",
-  description = "Submit your case details and we will match you with a qualified UK tax expert witness. Response within 1 business day.",
+  description = "Submit your UK tax dispute details and we will match you with a qualified tax expert witness experienced in HMRC investigations and UK tribunal proceedings. Response within 1 business day.",
   buttonText = "Contact Us",
 }: {
   title?: string;

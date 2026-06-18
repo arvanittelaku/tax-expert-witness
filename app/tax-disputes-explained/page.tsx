@@ -58,6 +58,9 @@ export default function TaxDisputesExplainedPage() {
         <div className="page-container prose-content max-w-3xl min-w-0">
           <h2>The UK Tax Dispute Landscape</h2>
           <p>
+            This guide covers tax disputes within the United Kingdom only. The First-tier Tribunal (Tax Chamber) handles appeals against HMRC decisions on income tax, PAYE, corporation tax, CGT, NIC, IHT, VAT, excise duty, and customs duty across England, Wales, Scotland, and Northern Ireland. It does not address non-UK tax authorities or foreign tribunal systems.
+          </p>
+          <p>
             The First-tier Tribunal (Tax Chamber) handles appeals against HMRC decisions on income tax, PAYE, corporation tax, CGT, NIC, IHT, VAT, excise duty, and customs duty. Tax disputes range from straightforward assessment challenges to complex multi-million pound transfer pricing and MTIC fraud proceedings. At every level, the question of whether independent expert evidence is required, and what type of expert, is a critical strategic decision for instructing solicitors.
           </p>
           <p>

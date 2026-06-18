@@ -27,6 +27,11 @@ export default function QualificationsPage() {
       />
       <section className="py-12 md:py-16">
         <div className="page-container prose-content max-w-3xl min-w-0">
+          <h2>UK Tax Expert Witness Network</h2>
+          <p>
+            Experts introduced through TaxExpertWitness.co.uk are qualified in United Kingdom tax practice and experienced in giving evidence before UK tribunals and courts. We do not refer experts for non-UK tax disputes or foreign tax authority proceedings.
+          </p>
+
           <h2>Core Tax Credentials</h2>
 
           <h3>CTA (Chartered Tax Adviser)</h3>

@@ -8,6 +8,11 @@ import { createMetadata } from "@/lib/metadata";
 
 const comparisonFaqs: FAQ[] = [
   {
+    question: "Does TaxExpertWitness.co.uk cover non-UK tax disputes?",
+    answer:
+      "No. This service is limited to United Kingdom tax disputes only, including HMRC investigations and assessments, First-tier Tribunal and Upper Tribunal appeals, and civil proceedings governed by UK tax law. We do not provide expert witness referrals for US, EU, or other non-UK tax jurisdictions.",
+  },
+  {
     question: "What is the difference between a tax expert witness and a forensic accountant?",
     answer:
       "A forensic accountant focuses on financial numbers, reconstruction, and quantification. A tax expert witness focuses on whether the correct tax analysis was applied, whether HMRC methodology is sound, and what the correct tax treatment should be. Complex HMRC investigations often require both.",
@@ -49,7 +54,12 @@ export default function WhatIsPage() {
         <div className="page-container prose-content max-w-3xl min-w-0">
           <h2>Definition</h2>
           <p>
-            A tax expert witness is a qualified tax specialist, typically a Chartered Tax Adviser (CTA) or senior tax practitioner, retained to provide an independent expert opinion on technical tax questions in legal proceedings. Unlike a forensic accountant who focuses on financial numbers, a tax expert witness focuses on the correct application of tax law and HMRC practice to the facts of the case.
+            A tax expert witness is a qualified tax specialist, typically a Chartered Tax Adviser (CTA) or senior tax practitioner, retained to provide an independent expert opinion on technical tax questions in legal proceedings within the United Kingdom. Unlike a forensic accountant who focuses on financial numbers, a tax expert witness focuses on the correct application of UK tax law and HMRC practice to the facts of the case.
+          </p>
+
+          <h2>United Kingdom Jurisdiction Only</h2>
+          <p>
+            Tax expert witnesses instructed through this service address disputes before HMRC, the First-tier Tribunal (Tax Chamber), Upper Tribunal, and UK civil courts. Their expertise applies to UK domestic tax legislation, HMRC guidance, and tribunal procedure under CPR Part 35. This does not extend to foreign tax authorities, US federal or state tax courts, or EU tax tribunals outside the United Kingdom.
           </p>
 
           <h2>Tax Expert Witness vs Forensic Accountant</h2>

@@ -3,20 +3,21 @@ import ContactForm from "@/components/ContactForm";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { createMetadata } from "@/lib/metadata";
+import { SITE_EMAIL, UK_SERVICE_SCOPE } from "@/lib/site";
 
 export const metadata = createMetadata({
   title: "Instruct a Tax Expert Witness | TaxExpertWitness.co.uk UK",
   description:
-    "Submit your case details to be matched with a qualified UK tax expert witness for FTT, HMRC investigation, or tax litigation proceedings. Response within 1 business day.",
+    "Submit your UK tax dispute details to be matched with a qualified tax expert witness for FTT, HMRC investigation, or tax litigation proceedings in England, Wales, Scotland, or Northern Ireland.",
   path: "/contact",
 });
 
 const trustPoints = [
-  "CTA and ACA tax specialists",
-  "FTT and Upper Tribunal experience",
-  "CPR Part 35 compliant reports",
+  "CTA and ACA tax specialists with UK tribunal experience",
+  "First-tier Tribunal and Upper Tribunal proceedings",
+  "CPR Part 35 compliant reports under English procedure",
   "HMRC methodology challenge expertise",
-  "Response within 1 business day",
+  "Response within 1 business day (UK time)",
 ];
 
 export default function ContactPage() {
@@ -30,10 +31,14 @@ export default function ContactPage() {
       />
       <PageHero
         title="Instruct a Tax Expert Witness"
+        subtitle="Submit details of your UK tax dispute. We match instructing solicitors and counsel with qualified tax expert witnesses for HMRC investigations, FTT appeals, and tax litigation governed by United Kingdom law."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       />
       <section className="py-12 md:py-16">
         <div className="page-container">
+          <p className="text-body leading-relaxed max-w-3xl mb-8">
+            {UK_SERVICE_SCOPE} If your matter concerns a non-UK tax authority or overseas tribunal, this service is unlikely to be appropriate.
+          </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
             <div className="lg:col-span-2 min-w-0">
               <ContactForm />
@@ -52,8 +57,8 @@ export default function ContactPage() {
                 <div className="mt-6 pt-6 border-t border-border">
                   <p className="text-sm text-body">
                     <span className="font-semibold text-heading">Email:</span>{" "}
-                    <a href="mailto:info@taxexpertwitness.co.uk" className="text-accent hover:text-primary transition-colors">
-                      info@taxexpertwitness.co.uk
+                    <a href={`mailto:${SITE_EMAIL}`} className="text-accent hover:text-primary transition-colors break-all">
+                      {SITE_EMAIL}
                     </a>
                   </p>
                 </div>

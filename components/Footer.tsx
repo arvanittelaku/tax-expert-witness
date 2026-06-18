@@ -7,7 +7,7 @@ import {
   hmrcInvestigationNavLinks,
   resourcesNavLinks,
 } from "@/lib/data/nav";
-import { SITE_EMAIL } from "@/lib/site";
+import { SITE_EMAIL, UK_SERVICE_SCOPE } from "@/lib/site";
 
 const disputeLinks = [
   ...taxDisputeTypeNavLinks.slice(0, 5),
@@ -94,6 +94,9 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-white/20">
           <p className="text-sm text-white/60 leading-relaxed max-w-3xl">
             TaxExpertWitness.co.uk connects solicitors with tax expert witnesses. We are not a law firm and do not provide legal advice.
+          </p>
+          <p className="mt-3 text-sm text-white/60 leading-relaxed max-w-3xl">
+            {UK_SERVICE_SCOPE}
           </p>
           <p className="mt-3 text-sm text-white/60">
             <a href={`mailto:${SITE_EMAIL}`} className="hover:text-white transition-colors">

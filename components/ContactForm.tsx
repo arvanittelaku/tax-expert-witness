@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { SITE_EMAIL } from "@/lib/site";
 
 const ROLES = [
   "Tax Litigation Solicitor",
@@ -232,7 +233,7 @@ export default function ContactForm() {
 
       {status === "error" && (
         <p className="text-red-600 text-sm" role="alert">
-          There was a problem submitting your enquiry. Please email us directly at info@taxexpertwitness.co.uk or try again.
+          There was a problem submitting your enquiry. Please email us directly at {SITE_EMAIL} or try again.
         </p>
       )}
 
